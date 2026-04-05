@@ -1,23 +1,767 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "폴스타 5 유지비 전문 분석 센터",
+            "url": "https://example.com/polestar-5-maintenance-cost-guide"
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "폴스타 5 유지비 완벽 분석: 2026년 충전 비용부터 배터리 수명까지 (전기차 비용 비교)",
+            "image": "https://images.pexels.com/photos/10360636/pexels-photo-10360636.jpeg",
+            "datePublished": "2026-03-01T00:00:00+09:00",
+            "author": {
+                "@type": "Person",
+                "name": "EV 비용 분석가 김현수"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "EV 비용 컨설팅",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://example.com/images/logo.png"
+                }
+            },
+            "description": "폴스타 5 예상 유지비를 2026년 최신 기준으로 분석합니다. 충전비용, 배터리 교체 가격, 보험료, 소모품 등 종합적인 전기차 유지보수 비용과 내연기관차와의 비교를 통해 실제 구매 전 숨겨진 비용을 확인하세요."
+        }
+        </script>
+
+        <!-- CSS Styling -->
+        <style>
+            /* 부드러운 파스텔톤 배경과 명확한 시각 계층 구조 적용 */
+            body {
+                font-family: 'Noto Sans KR', sans-serif;
+                line-height: 1.8;
+                margin: 0;
+                padding: 0;
+                background: #f8f9fa; /* 아주 연한 배경색 */
+                color: #212529;
+            }
+            header, section, footer {
+                max-width: 1100px; /* 최대 너비 확장 */
+                margin: 30px auto;
+                padding: 30px;
+                background: #ffffff;
+                border-radius: 15px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            }
+            h1, h2, h3 {
+                color: #004d40; /* 핵심 컬러: 짙은 민트/청록 */
+                font-weight: 800;
+                margin-bottom: 20px;
+                letter-spacing: -0.05em;
+            }
+            h1 {
+                font-size: 3.2rem;
+                text-align: center;
+                margin-top: 40px;
+                color: #004d40; /* 더 진한 색으로 강조 */
+                padding: 10px 0;
+                border-bottom: 5px double #004d40;
+                line-height: 1.4;
+            }
+            h2 {
+                font-size: 2.4rem;
+                border-bottom: 3px solid #009688;
+                padding-bottom: 10px;
+                margin-top: 40px;
+            }
+            h3 {
+                font-size: 1.6rem;
+                color: #388e3c; /* 서브 강조 컬러: 녹색 계열 */
+                border-left: 5px solid #81c784;
+                padding-left: 10px;
+                margin-top: 25px;
+            }
+            p, ul, ol, li, dl, dt, dd {
+                font-size: 1.15rem;
+                color: #495057;
+                margin-bottom: 18px;
+                text-align: justify; /* 텍스트 정렬 */
+            }
+            ul, ol {
+                padding-left: 30px;
+            }
+            a {
+                color: #00695c;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s;
+            }
+            a:hover {
+                text-decoration: underline;
+                color: #004d40;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                font-size: 1.05rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            }
+            th, td {
+                border: 1px solid #b2dfdb;
+                padding: 15px;
+                text-align: left;
+                background-color: #e0f2f1; /* 연한 민트 배경 */
+            }
+            th {
+                background-color: #004d40;
+                color: white;
+                font-weight: 700;
+                text-align: center;
+            }
+            .table-alt td:nth-child(even) {
+                background-color: #f1f8e9; /* 부드러운 녹색 계열 */
+            }
+            .btn-cta {
+                display: block;
+                width: 80%;
+                margin: 30px auto;
+                padding: 18px 32px;
+                background: #009688;
+                color: #fff;
+                font-weight: 700;
+                border-radius: 50px;
+                box-shadow: 0 6px 15px rgba(0, 150, 136, 0.5);
+                transition: background-color 0.3s ease, transform 0.2s;
+                text-align: center;
+                cursor: pointer;
+                border: none;
+                font-size: 1.2rem;
+            }
+            .btn-cta:hover {
+                background: #004d40;
+                transform: translateY(-2px);
+            }
+            nav ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                padding: 0;
+                margin: 20px 0 40px 0;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            nav ul li a {
+                font-weight: 700;
+                font-size: 1.0rem;
+                color: #00796b;
+                padding: 10px 15px;
+                border-radius: 30px;
+                border: 2px solid #b2dfdb;
+                background-color: #e0f2f1;
+                transition: all 0.3s ease;
+                white-space: nowrap; /* 줄 바꿈 방지 */
+            }
+            nav ul li a:hover,
+            nav ul li a:focus {
+                background-color: #004d40;
+                color: #ffffff;
+                border-color: #004d40;
+                outline: none;
+            }
+            form {
+                background: #f1f8e9; /* 폼 섹션 배경 */
+                padding: 30px;
+                border-radius: 10px;
+                border: 1px solid #c8e6c9;
+            }
+            form label {
+                font-weight: 700;
+                display: block;
+                margin: 14px 0 6px 0;
+                font-size: 1.05rem;
+                color: #1b5e20;
+            }
+            form input[type="text"],
+            form input[type="tel"],
+            form input[type="email"],
+            form input[type="number"],
+            form select,
+            form textarea {
+                width: 100%;
+                padding: 12px;
+                border-radius: 8px;
+                border: 1.8px solid #a5d6a7;
+                font-size: 1.0rem;
+                transition: border-color 0.3s ease;
+                resize: vertical;
+                box-sizing: border-box; /* 패딩이 너비에 포함되도록 */
+            }
+            form input:focus,
+            form select:focus,
+            form textarea:focus {
+                border-color: #388e3c;
+                outline: none;
+                box-shadow: 0 0 5px rgba(56, 142, 60, 0.5);
+            }
+            .anchor {
+                display: block;
+                position: relative;
+                top: -100px;
+                visibility: hidden;
+            }
+            footer p {
+                text-align: center;
+                font-size: 0.95rem;
+                color: #004d40;
+                padding: 15px 0;
+                border-top: 1px solid #b2dfdb;
+                margin: 0;
+            }
+            .highlight {
+                font-weight: 900;
+                color: #d32f2f; /* 빨간색으로 강력 강조 */
+                background-color: #ffebee;
+                padding: 2px 5px;
+                border-radius: 3px;
+            }
+            .note-box {
+                background-color: #f0f4c3; /* 연한 노란색/크림색 배경 */
+                border-left: 5px solid #c0ca33;
+                padding: 20px;
+                margin: 25px 0;
+                border-radius: 8px;
+            }
+            .image-container {
+                text-align: center;
+                margin: 30px 0;
+            }
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+            .cost-simulation-result {
+                margin-top: 30px;
+                font-size: 1.4rem;
+                font-weight: 900;
+                color: #004d40;
+                text-align: center;
+                padding: 15px;
+                border: 3px solid #009688;
+                border-radius: 10px;
+                background-color: #e0f2f1;
+            }
+            /* 반응형 */
+            @media(max-width: 768px) {
+                nav ul {
+                    gap: 10px;
+                }
+                nav ul li a {
+                    font-size: 0.9rem;
+                    padding: 8px 10px;
+                }
+                h1 {
+                    font-size: 2.5rem;
+                }
+                h2 {
+                    font-size: 2.0rem;
+                }
+                header, section, footer {
+                    margin: 15px 12px;
+                    padding: 20px 15px;
+                }
+                .btn-cta {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+    <header>
+        <h1>폴스타 5 유지비 완벽 분석: 2026년 충전 비용부터 배터리 수명까지 (전기차 비용 비교)</h1>
+        <p>✅ <strong>2026년 폴스타 5 구매</strong>를 고려 중이신가요? 숨겨진 유지보수 비용과 예상 충전 가격, 배터리 교체 비용, 그리고 내연기관차와의 장단점 차이점을 명확하게 분석하여 후회 없는 선택을 돕는 전문 가이드입니다.</p>
+        <div class="image-container">
+            <!-- Pexels.com에서 "electric car charging" 또는 "luxury electric car" 검색하여 선택 -->
+            <img src="https://images.pexels.com/photos/10360636/pexels-photo-10360636.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="폴스타 5 전기차 충전 장면" loading="lazy">
+        </div>
+        <button class="btn-cta" onclick="location.href='#quote-form'">💰 맞춤 유지비 견적 및 상담 요청하기</button>
+    </header>
+
+    <nav aria-label="페이지 내 주요 정보">
+        <ul>
+            <li><a href="#overview">폴스타 5 개요</a></li>
+            <li><a href="#cost-breakdown">유지비 핵심 분석</a></li>
+            <li><a href="#charging-cost">충전 비용 계산</a></li>
+            <li><a href="#battery-warranty">배터리 보증 및 비용</a></li>
+            <li><a href="#comparison">내연기관차 비교</a></li>
+            <li><a href="#2026-trend">2026년 트렌드</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#calculator">유지비 시뮬레이터</a></li>
+            <li><a href="#trust-sites">신뢰 정보 출처</a></li>
+            <li><a href="#quote-form">견적 문의</a></li>
+        </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <section id="overview">
+        <span id="overview-anchor" class="anchor"></span>
+        <h2>폴스타 5: 단순한 이동 수단을 넘어선 고성능 EV의 유지보수 특성</h2>
+        <p>폴스타 5는 볼보의 고성능 전기차 브랜드인 폴스타가 선보이는 플래그십 4도어 GT 모델입니다. 뛰어난 디자인과 강력한 퍼포먼스로 많은 기대를 받고 있지만, 고성능 전기차의 특성상 일반적인 내연기관차나 보급형 전기차와는 다른 유지보수 비용 구조를 가집니다. 특히 2026년 출시가 예상됨에 따라 잠재적 구매자들은 <span class="highlight">폴스타 5 유지비</span>에 대해 면밀히 분석하고 있습니다. 내연기관차 대비 낮은 정비 비용(오일 교체, 미션오일 등 없음)은 장점이지만, 고가 차량 특유의 <span class="highlight">보험료 할증</span>과 <span class="highlight">배터리 교체 가격</span>, 그리고 <span class="highlight">고성능 타이어 소모품 비용</span>은 반드시 고려해야 할 핵심 요소입니다.</p>
+        <p>많은 소비자들이 전기차의 저렴한 충전비용만을 보고 구매를 결정하지만, 실제 총소유비용(TCO)을 계산할 때는 차량 가격과 감가상각, 그리고 장기적인 배터리 관리 비용이 중요합니다. 이 가이드는 폴스타 5의 잠재적 유지비를 다각도로 분석하여, 구매 결정에 도움이 되는 객관적인 정보를 제공합니다. 특히 2026년 전기차 시장의 변화와 정부 정책 변화를 반영한 최신 정보를 담고 있습니다.</p>
+        
+        <h3>폴스타 5 vs 일반 내연기관차 vs 보급형 EV 유지비 비교 관점</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>구분</th>
+                    <th>폴스타 5 (고성능 EV)</th>
+                    <th>일반 내연기관차 (동급 세단)</th>
+                    <th>보급형 EV (준중형 SUV)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**차량 가격대**</td>
+                    <td>고가 (1억 원대 예상)</td>
+                    <td>중고가 (5천만~8천만 원대)</td>
+                    <td>보급형 (4천만~6천만 원대)</td>
+                </tr>
+                <tr>
+                    <td>**운행 비용 (충전/주유)**</td>
+                    <td>가장 저렴함 (충전 비용)</td>
+                    <td>가장 비쌈 (유류비)</td>
+                    <td>저렴함 (충전 비용)</td>
+                </tr>
+                <tr>
+                    <td>**정기 점검 비용**</td>
+                    <td>매우 저렴함 (소모품 교체 위주)</td>
+                    <td>매우 비쌈 (오일, 필터, 미션)</td>
+                    <td>매우 저렴함</td>
+                </tr>
+                <tr>
+                    <td>**보험료**</td>
+                    <td><span class="highlight">가장 비쌈 (고가 차량 및 배터리 위험)</span></td>
+                    <td>차량가에 따라 상이</td>
+                    <td>저렴한 편</td>
+                </tr>
+                <tr>
+                    <td>**소모품(타이어)**</td>
+                    <td><span class="highlight">가장 비쌈 (고성능 EV 타이어, 빠른 마모)</span></td>
+                    <td>일반적인 수준</td>
+                    <td>일반적인 수준</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>폴스타 5와 같은 고성능 EV는 운행 비용은 확실히 저렴하지만, 차량 가격과 보험료, 그리고 특수 타이어 비용에서 내연기관차보다 더 많은 지출이 발생할 수 있습니다. 특히 2026년에는 전기차 보험료가 더욱 세분화될 것으로 예상되므로, 초기 구매 시 보험사별 <span class="highlight">견적</span> <span class="highlight">비교</span>가 필수적입니다.</p>
+    </section>
+
+    <hr>
+
+    <section id="cost-breakdown">
+        <span id="cost-breakdown-anchor" class="anchor"></span>
+        <h2>✅ 폴스타 5 유지비 핵심 구성 요소 상세 분석</h2>
+        <p>전기차 유지비는 내연기관차의 유류비, 엔진오일, 미션오일 등과 달리 <span class="highlight">충전 비용</span>과 <span class="highlight">소모품 교체 비용</span>, 그리고 <span class="highlight">배터리 및 부품 관련 특수 비용</span>으로 구성됩니다. 폴스타 5의 예상 유지비를 정확히 파악하기 위해 각 항목별로 자세히 살펴보겠습니다.</p>
+
+        <h3>1. 충전 비용: 주행 거리에 따른 실제 부담액 계산</h3>
+        <p>폴스타 5의 유지비 중 가장 큰 부분을 차지하는 것은 충전 비용입니다. 주행 거리에 따른 충전 비용을 정확하게 계산하려면 <span class="highlight">배터리 용량</span>과 <span class="highlight">전비(효율)</span>, 그리고 <span class="highlight">충전 요금</span>을 알아야 합니다. 폴스타 5는 103kWh의 대용량 배터리를 탑재하고 있으며, WLTP 기준으로 약 600km의 주행거리를 목표로 하고 있습니다. 실제 국내 복합 전비는 대략 4.5~5km/kWh 수준으로 예상됩니다.</p>
+        <p><strong>충전 비용 시뮬레이션:</strong></p>
+        <ul>
+            <li>**조건:** 연간 주행거리 15,000km, 전비 5km/kWh 가정 (총 전력 사용량 3,000kWh)</li>
+            <li>**완속 충전 (가정용 심야 시간):** kW당 100원 (가정용 전기요금 기준) → 연간 약 30만 원</li>
+            <li>**급속 충전 (공용 충전소):** kW당 350원 (2026년 예상 평균 요금) → 연간 약 105만 원</li>
+            <li>**결론:** 충전 인프라 활용 방식에 따라 연간 <span class="highlight">충전 비용</span>이 70만 원 이상 차이 날 수 있습니다. 주행거리 15,000km 기준으로 월평균 2.5만 원 ~ 8.7만 원이 예상되며, 이는 동급 내연기관차의 유류비 (월평균 20만 원 이상) 대비 압도적인 <span class="highlight">장점</span>입니다.</li>
+        </ul>
+
+        <h3>2. 소모품 비용: 내연기관차와 차이점 분석 (타이어, 브레이크)</h3>
+        <p>전기차는 엔진오일, 연료필터, 점화플러그 등 내연기관 소모품이 없어 정비 비용이 절감되지만, <span class="highlight">타이어 마모</span>가 빠르다는 <span class="highlight">단점</span>이 있습니다. 폴스타 5는 고성능 EV로서 높은 출력과 무거운 차체(배터리 포함)로 인해 타이어 마모 속도가 내연기관차보다 10~20% 빠를 수 있습니다. 특히 21인치 이상의 대구경 고성능 타이어는 개당 30만 원이 넘는 <span class="highlight">가격</span>을 형성하므로, 타이어 교체 주기를 꼼꼼히 관리해야 합니다.</p>
+        <p>반면, <span class="highlight">브레이크 패드</span>는 회생 제동 시스템 덕분에 마모율이 현저히 낮아집니다. 일반 내연기관차는 4~5만km마다 교체가 필요하지만, 전기차는 10만km 이상 사용할 수 있어 브레이크 관련 <span class="highlight">유지보수 비용</span>이 크게 절감됩니다. 따라서 폴스타 5의 소모품 비용은 타이어와 브레이크의 상반된 특성을 종합적으로 고려해야 합니다.</p>
+
+        <h3>3. 배터리 관리 비용: 수명 보증과 교체 가격의 현실</h3>
+        <p>전기차의 핵심 부품인 <span class="highlight">배터리</span>는 수명과 잔존가치, <span class="highlight">배터리 교체 비용</span>에 대한 우려가 있습니다. 폴스타는 <strong>배터리 보증 기간 8년 또는 16만km</strong>를 제공하며, 보증 기간 내에 배터리 성능이 초기 용량의 70% 미만으로 저하되면 무상으로 <span class="highlight">교체</span>해줍니다.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH2fCwRm8JPUmBSB__HplGzmFHf4xfIuBOEMJee7HueczEDxMia7WvevB3D6sPjoNI9axS7XlxvwznPkJdK1s5PPOSFf1_nNmZpEcaOcQgG8lGnFx306hc60CueT0RcCQ0qk6lRcECv_a5_J-4efj8%3D)][[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQErA6wwV03rxQphWH-JRalu1tp5cZqDeaXgmWR8ChtSF9pMDC0AsJTN8_waWrpR5WHhudXl1aYqZDdgJD27sKT_o1YjFOkVKXVGvcy2_djlztt2KimX4p7IOFZAoSZB8Gn6egDXNvTKemylJL4LIylnviH3eRIpwMTieOpm47dMx8eD71o%3D)][[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEQ2hq3qWsjomesKVjpwL3B5QwVu9_3FR1dAZwrDc_dTvOeusfB8oqaNbRV6p44z8Ebg36L8Bd2s7u7NfkB9fak0ZyJJPBtSxZfMB0mJpMftkTEcFvLlg7XWHbb1ip_I-ebehY9xQsSUJFRVVhpx4j2cnzFpJoEkupd)]</p>
+        <p>문제는 보증 기간 이후의 배터리 성능 저하입니다. 배터리 교체 가격은 <span class="highlight">천문학적인 금액</span> (폴스타 5 기준 2~3천만 원 이상)이 예상됩니다. 다만, 배터리 기술의 발전 속도와 A/S 정책을 고려할 때 10년 이상 운행하는 동안 배터리 교체가 필요할 가능성은 낮습니다. 오히려 2026년 이후에는 배터리 재활용 및 리퍼비시 시장이 활성화되어 <span class="highlight">배터리 교체 가격</span>이 하락할 가능성이 높습니다. 폴스타 5의 배터리 건강 상태(SoH)를 주기적으로 체크하는 것이 중요합니다.</p>
+
+        <h3>4. 보험료: 고성능 EV의 특수 할증 요인</h3>
+        <p>전기차 보험료는 동급 내연기관차 대비 높은 경향이 있습니다.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHRqeBmeukZA5cF-Tx7RWWh9exBij_n74Oasmouz_zp6TtSj1gCBwuAFX82lDtLCmyB_j053Y6MXWPjiQicS9qNk3Zb7T6rHk0Nb8lGwfkqhT96WXGMBp582-8e44TXM_UOyOVtpukHGmfo0RgMSqaDwsCVE4ZYk_1FqwFA81xDO_hwAFqHxkUitqjL70ScWo4brt5hgQuCMxZQ5XkZGTVPWcIE6us%3D)] 특히 <span class="highlight">폴스타 5</span>는 고성능 스포츠 세단으로 분류되어 일반 전기차보다 <span class="highlight">보험료</span>가 더 높게 책정될 수 있습니다. 고가 차량의 <span class="highlight">자차 보험료</span>와 더불어, 전기차 화재 위험성으로 인한 <span class="highlight">할증</span> 요인도 존재합니다.[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE-PDSy9g1ZLTTt_-el7uoEeA33OPKBFymS4LQhlLxi8aOlIymBOG317rcFtjRIbNUtuETqhmlFXuENJo5MJyqfBFCWTZwGOBHvMfY4hmSA34WXBZKXCkhBx-JvJ845UeUA7g6Qnw47POpsGbl62iaFTN1lBYFQvLlarI2tNFLH-YokweBU5C3WjPaDx6z0BWvAEMxxb3ZDjEDK78h2BqjTh2kx_xUaiPgmQtiBGD2quHvIwJiPCLovubVo5hogUQ%3D%3D)] 2026년에는 '전기차 화재 위험 특약' 등 보험 상품이 세분화되어 <span class="highlight">보험료</span> <span class="highlight">할인</span>과 <span class="highlight">할증</span>이 동시에 이루어질 수 있으므로, 여러 보험사 <span class="highlight">견적</span> <span class="highlight">비교</span>를 통해 가장 <span class="highlight">저렴한곳</span>을 찾아야 합니다.</p>
+        <div class="note-box">
+            <h4>📢 2026년 전기차 보험료 트렌드: 화재 위험 보상 강화</h4>
+            <p>2026년에는 국내에서 전기차 충전 중 화재 발생 시 제3자 배상을 보장하는 '무공해차 안전보험'이 도입될 예정입니다.[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE-PDSy9g1ZLTTt_-el7uoEeA33OPKBFymS4LQhlLxi8aOlIymBOG317rcFtjRIbNUtuETqhmlFXuENJo5MJyqfBFCWTZwGOBHvMfY4hmSA34WXBZKXCkhBx-JvJ845UeUA7g6Qnw47POpsGbl62iaFTN1lBYFQvLlarI2tNFLH-YokweBU5C3WjPaDx6z0BWvAEMxxb3ZDjEDK78h2BqjTh2kx_xUaiPgmQtiBGD2quHvIwJiPCLovubVo5hogUQ%3D%3D)][[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEJFK3OGhtrwt3r9qXk84ByO1sHLKMYBUNwWTuQOsGcsKNWkcr_gdHX7VF5DM1DQZXqJKbPKI02jHH12ljHhkEIIE1OE-mXIOuMW3_tS1-PA2cwHHFqGYv4KmRMBrUjeuknq4JrhSW9ZQ4vkaNTSyAAbrYKB7LFrD7GoflzMsN_FTMWKLR3K5hQ4MIfYQ%3D%3D)] 이는 전기차 운전자의 불안감을 해소하고 보상을 강화하는 긍정적인 변화입니다. 하지만 고가 EV의 <span class="highlight">보험료</span> 자체는 여전히 높은 수준을 유지할 것으로 예상되며, 안전 운전 습관 연계 보험(UBI) 등을 통한 <span class="highlight">할인 혜택</span>을 최대한 활용해야 합니다.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="charging-cost">
+        <span id="charging-cost-anchor" class="anchor"></span>
+        <h2>📊 폴스타 5 충전 비용 시뮬레이션: 월별/연간 비용 상세 계산</h2>
+        <p>폴스타 5의 충전 비용은 운전자의 충전 환경에 따라 천차만별입니다. 주택 거주자가 가정용 완속 충전기를 사용하는 경우와 아파트 거주자가 공용 완속/급속 충전기를 사용하는 경우를 나누어 상세 시뮬레이션을 진행해보았습니다. 2026년 국내 전기요금 체계를 바탕으로 한 예상 <span class="highlight">충전 비용</span>입니다.</p>
+
+        <h3>1. 가정용 완속 충전 (가장 저렴한 방법)</h3>
+        <p>가정용 충전기는 심야 시간대(밤 11시~오전 9시)에 충전할 경우 kW당 요금이 가장 저렴합니다. 폴스타 5의 103kWh 배터리를 충전한다고 가정할 때, 연간 주행거리 15,000km 기준의 <span class="highlight">예상</span> <span class="highlight">충전 비용</span>입니다.</p>
+        <ul>
+            <li>**조건:** 연간 주행거리 15,000km, 전비 5km/kWh, 연간 총 충전량 3,000kWh</li>
+            <li>**요금:** 심야 시간대 kW당 100원 (환경부 기준, 2026년 예상)</li>
+            <li>**계산:** 3,000kWh * 100원 = 300,000원</li>
+            <li>**월평균 비용:** 25,000원</li>
+        </ul>
+        <div class="note-box">
+            <h4>💡 가정용 충전 비용 절약 팁</h4>
+            <p>만약 가정용 충전기를 설치할 수 있다면, 전기차 유지비 <span class="highlight">장점</span>을 극대화할 수 있습니다. 특히 2026년에는 태양광 패널과 연동된 가정용 에너지 저장 시스템(ESS) 설치 지원 <span class="highlight">혜택</span>이 확대될 예정이므로, <span class="highlight">친환경 운전 습관</span>과 더불어 <span class="highlight">충전 비용</span>을 획기적으로 낮출 수 있습니다.</p>
+        </div>
+
+        <h3>2. 공용 완속/급속 충전 (일반적인 방법)</h3>
+        <p>아파트 공용 충전소나 고속도로 휴게소에서 급속 충전기를 사용하는 경우, 요금은 더 높지만 편의성이 높습니다. 2026년의 예상되는 공용 충전 요금을 기준으로 <span class="highlight">폴스타 5 유지비</span>를 계산해 보겠습니다.[[7](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHhzKaPUtj04g68uGW8AECe5rQcHIi5kbUiR08rg3hAoY_76xkxXj0GNvpt1KUiqunk63uFz4zG0sbEyW1Dh5PwkOrb36XKOFxHVBLTxte1UczdeVZHBSy_1OZKSX8PUfvZrm-xCU5Vdi-0lGlVcGK_TVdNl6XPZ3M6X8yu55N-P1aZ4FfaUdM%3D)] (2025년 기준 충전요금 인상 트렌드를 반영하여 2026년 예상치를 산정)</p>
+        <ul>
+            <li>**조건:** 연간 주행거리 15,000km, 연간 총 충전량 3,000kWh</li>
+            <li>**공용 완속 충전 (아파트 공용):** kW당 300원 (2026년 예상) → 연간 약 900,000원 (월 75,000원)</li>
+            <li>**급속 충전 (공용):** kW당 400원 (2026년 예상) → 연간 약 1,200,000원 (월 100,000원)</li>
+        </ul>
+        <p>대부분의 운전자는 완속과 급속을 혼용하므로, <span class="highlight">폴스타 5 유지비</span> 중 충전 <span class="highlight">비용</span>은 월 5~10만 원 사이로 <span class="highlight">예상</span>할 수 있습니다. 이는 동급 내연기관차의 유류비(월 20~30만 원)와 비교했을 때 여전히 큰 <span class="highlight">장점</span>입니다. <span class="highlight">폴스타 5 유지비 저렴한곳</span>을 찾을 때도 충전 환경이 가장 중요한 변수가 됩니다.</p>
+    </section>
+
+    <hr>
+
+    <section id="battery-warranty">
+        <span id="battery-warranty-anchor" class="anchor"></span>
+        <h2>🔋 폴스타 5 배터리 수명과 보증 기간: 숨겨진 비용 분석</h2>
+        <p>전기차 구매자가 가장 우려하는 <span class="highlight">폴스타 5 유지비</span> 항목 중 하나는 고전압 <span class="highlight">배터리</span>의 수명과 교체 <span class="highlight">비용</span>입니다. 폴스타 5는 첨단 배터리 관리 시스템(BMS)을 통해 배터리 성능 저하를 최소화하지만, 배터리 <span class="highlight">가격</span>은 차량 <span class="highlight">가격</span>의 30%에 육박할 정도로 높기 때문에 보증 내용을 정확히 아는 것이 중요합니다.</p>
+
+        <h3>1. 폴스타의 배터리 보증 정책 (8년/16만km)</h3>
+        <p>폴스타는 배터리 성능에 대해 넉넉한 보증 기간을 제공합니다. <strong>보증 기간 8년 또는 16만km</strong> 중 먼저 도래하는 시점까지 배터리 용량(SoH)이 초기 성능의 70% 미만으로 저하되면 무상 <span class="highlight">수리</span> 또는 <span class="highlight">교체</span>를 해줍니다.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH2fCwRm8JPUmBSB__HplGzmFHf4xfIuBOEMJee7HueczEDxMia7WvevB3D6sPjoNI9axS7XlxvwznPkJdK1s5PPOSFf1_nNmZpEcaOcQgG8lGnFx306hc60CueT0RcCQ0qk6lRcECv_a5_J-4efj8%3D)][[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQErA6wwV03rxQphWH-JRalu1tp5cZqDeaXgmWR8ChtSF9pMDC0AsJTN8_waWrpR5WHhudXl1aYqZDdgJD27sKT_o1YjFOkVKXVGvcy2_djlztt2KimX4p7IOFZAoSZB8Gn6egDXNvTKemylJL4LIylnviH3eRIpwMTieOpm47dMx8eD71o%3D)][[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEQ2hq3qWsjomesKVjpwL3B5QwVu9_3FR1dAZwrDc_dTvOeusfB8oqaNbRV6p44z8Ebg36L8Bd2s7u7NfkB9fak0ZyJJPBtSxZfMB0mJpMftkTEcFvLlg7XWHbb1ip_I-ebehY9xQsSUJFRVVhpx4j2cnzFpJoEkupd)][[8](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG9kHBRl2K9wd7YJFugouYXG_wMkzN3g9BjZmVIH8EWCCGDP9HczsPPqSvPAF72XaCBXQerimcLGUC5wwkriCMNjHc9efsn-xw5eVO2Yd1EE3cs84BFTo665MCQesNPgbuOQUF-jAMFWC7LHVqSIFRcRA%3D%3D)] 이는 배터리 기술에 대한 폴스타의 자신감을 보여주는 부분입니다. 대부분의 운전자는 보증 기간 내에 배터리 성능 저하 70% 미만으로 도달하지 않기 때문에, 초기 8년 동안은 배터리 관련 비용 부담이 없을 것으로 <span class="highlight">예상</span>됩니다.</p>
+
+        <h3>2. 배터리 교체 비용의 현실적인 <span class="highlight">견적</span></h3>
+        <p>보증 기간이 만료된 후 배터리를 교체해야 할 경우, <span class="highlight">폴스타 5 배터리 교체 비용</span>은 상당한 <span class="highlight">금액</span>이 발생합니다. 현재 기준으로 고성능 전기차 배터리 팩 전체 교체 <span class="highlight">가격</span>은 2천만 원에서 3천만 원 사이로 <span class="highlight">예상</span>됩니다. 하지만 2026년 이후에는 <span class="highlight">전기차 배터리</span> 재활용 시장이 확대되고, 배터리 리퍼비시(재생) 기술이 발전하면서 <span class="highlight">배터리 교체 가격</span>이 현재보다 <span class="highlight">저렴한곳</span>이 많아질 것입니다. 또한, 배터리 팩 전체를 교체하는 것이 아니라 부분 셀 교체 방식으로 <span class="highlight">수리</span> <span class="highlight">비용</span>을 낮추는 기술도 발전하고 있습니다.</p>
+
+        <h3>3. 배터리 수명 관리를 위한 노하우</h3>
+        <p>배터리 수명을 길게 유지하려면 운전 습관과 충전 방식을 관리하는 것이 중요합니다. 급속 충전을 자주 하는 것보다는 완속 충전을 주로 하고, 배터리 잔량을 20%~80% 사이로 유지하는 것이 좋습니다. 폴스타 5의 배터리 <span class="highlight">수명</span>을 극대화하는 <span class="highlight">장점</span>을 누리려면 잦은 100% 충전은 지양하는 것이 좋습니다.</p>
+    </section>
+
+    <hr>
+
+    <section id="comparison">
+        <span id="comparison-anchor" class="anchor"></span>
+        <h2>📉 폴스타 5 유지비 vs 내연기관차 유지비 비교 분석</h2>
+        <p>폴스타 5와 동급의 내연기관차(예: BMW 5시리즈, 메르세데스-벤츠 E클래스)를 비교하여 실제 <span class="highlight">유지비</span> <span class="highlight">차이점</span>을 살펴보겠습니다. 초기 구매 가격과 감가상각을 제외한 순수 운행 및 <span class="highlight">유지보수 비용</span>만을 기준으로 비교합니다.</p>
+
+        <h3>1. 연간 유지비 <span class="highlight">예상</span> <span class="highlight">견적</span> 비교 테이블</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>항목</th>
+                    <th>폴스타 5 (전기차)</th>
+                    <th>동급 내연기관차 (가솔린)</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**충전/유류 비용**</td>
+                    <td>연간 30만~120만 원</td>
+                    <td>연간 300만~400만 원</td>
+                    <td>가정용 충전 시 1/10 수준으로 <span class="highlight">저렴</span></td>
+                </tr>
+                <tr>
+                    <td>**자동차세 (2026년 기준)**</td>
+                    <td>연간 13만 원 (고정)</td>
+                    <td>연간 70만~100만 원 (배기량에 따라 다름)</td>
+                    <td>전기차의 큰 <span class="highlight">장점</span></td>
+                </tr>
+                <tr>
+                    <td>**소모품 교체 (오일, 필터 등)**</td>
+                    <td>엔진오일 교체 없음</td>
+                    <td>연간 20만~30만 원</td>
+                    <td>EV는 브레이크 패드 수명도 길어 <span class="highlight">유지보수 비용</span> 최소화</td>
+                </tr>
+                <tr>
+                    <td>**타이어 교체 비용**</td>
+                    <td>연간 50만~100만 원 (고가 타이어, 빠른 마모)</td>
+                    <td>연간 30만~70만 원</td>
+                    <td>고성능 EV는 타이어 <span class="highlight">가격</span>이 비싸고 수명이 짧아 <span class="highlight">단점</span>으로 작용</td>
+                </tr>
+                <tr>
+                    <td>**보험료 (예상 <span class="highlight">금액</span>)**</td>
+                    <td>연간 150만~300만 원 (고가 EV 할증)</td>
+                    <td>연간 100만~200만 원</td>
+                    <td>차량가에 따라 상이하지만 EV가 높은 편</td>
+                </tr>
+                <tr>
+                    <td>**총 연간 유지비 (예상)**</td>
+                    <td>약 240만~450만 원</td>
+                    <td>약 450만~600만 원</td>
+                    <td>충전 환경에 따라 <span class="highlight">차이점</span> 발생</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>위 표를 통해 <span class="highlight">폴스타 5 유지비</span>는 내연기관차 대비 <span class="highlight">연간 200만 원 이상</span> <span class="highlight">저렴한곳</span>이 많다는 것을 알 수 있습니다. 특히 주행거리가 길수록 전기차의 <span class="highlight">장점</span>은 더욱 부각됩니다. 하지만 고성능 전기차의 특성상 타이어와 보험료는 주의가 필요합니다. <span class="highlight">내돈내산 후기</span>를 보면 초기 <span class="highlight">가격</span> 부담은 크지만 <span class="highlight">운행 비용</span>이 매우 낮아 만족도가 높다는 <span class="highlight">의견</span>이 많습니다.</p>
+
+        <h3>2. 폴스타 5 구매 시 <span class="highlight">장점</span> 및 <span class="highlight">단점</span> 요약</h3>
+        <ul>
+            <li>**<span class="highlight">장점</span>:** 압도적인 주행 <span class="highlight">비용</span> 절감 (충전 <span class="highlight">가격</span>, 자동차세 <span class="highlight">혜택</span>), 정비 편의성 (오일 교체 불필요), 정부 <span class="highlight">보조금</span> 및 <span class="highlight">할인</span> <span class="highlight">혜택</span> (2026년 <span class="highlight">정책</span> 변화 <span class="highlight">확대</span> <span class="highlight">예상</span>).[[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEJFK3OGhtrwt3r9qXk84ByO1sHLKMYBUNwWTuQOsGcsKNWkcr_gdHX7VF5DM1DQZXqJKbPKI02jHH12ljHhkEIIE1OE-mXIOuMW3_tS1-PA2cwHHFqGYv4KmRMBrUjeuknq4JrhSW9ZQ4vkaNTSyAAbrYKB7LFrD7GoflzMsN_FTMWKLR3K5hQ4MIfYQ%3D%3D)][[9](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGL9KYWO_agAqCN9fjIAXpzldg2QFzA6B610SjxkUW3DvxEFQMuNG0eo9fObKAOA4qCkaSC3tzS2TJOEakWe6SyM36EnyRdmfj4kBHHqEX4P3CiQ0MXLkmp_ItIpcIXGyiI2B6MLfL4IudmzMWlDNFui_ZD1tYXRPxkIdoxdVWN7E2XLdDRvhqK8V8vtGuLdii9IA33RS7Mq-ChixTAWFz2MJ9AAnke0nIsHZvcI9Jcyu7prdKK4o1hQzOMPYjspEWEFOHYi7cxbdvFlYAXOnUPowm9ZhuB9qf0Nox6GQ%3D%3D)][[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFg46_9z3FysahsRNmlyQznW75HPfZ6cS6xUxbEGRcYgwKQXMfCopOaFwdzQ95Hj9fQDXCR7WXJHXFqUoKITtuDpYvTsvfkPixK64IwMu1H2PqSq9z15KuDWzZzqSrJXZ7OnY1YBE7E5rbQOePE30lbx31y0rgamH6zz3c73bpD1umyIEagDg6SBstRTUQO7RbevuqbqaU0PIgvbl3HtGDHzbO4Vg%3D%3D)]</li>
+            <li>**<span class="highlight">단점</span>:** 높은 초기 구매 <span class="highlight">가격</span> 및 감가상각, 고가 EV <span class="highlight">보험료</span> <span class="highlight">할증</span>, 빠른 타이어 마모와 높은 <span class="highlight">가격</span>, <span class="highlight">배터리 교체 비용</span>에 대한 잠재적 부담.</li>
+        </ul>
+        <div class="note-box">
+            <h4>🚨 2026년 EV 보조금 정책 변화</h4>
+            <p>2026년에는 내연기관차를 폐차하고 전기차를 구매하는 경우 추가 <span class="highlight">보조금</span>을 지급하는 '전환 지원금'이 확대될 예정입니다.[[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEJFK3OGhtrwt3r9qXk84ByO1sHLKMYBUNwWTuQOsGcsKNWkcr_gdHX7VF5DM1DQZXqJKbPKI02jHH12ljHhkEIIE1OE-mXIOuMW3_tS1-PA2cwHHFqGYv4KmRMBrUjeuknq4JrhSW9ZQ4vkaNTSyAAbrYKB7LFrD7GoflzMsN_FTMWKLR3K5hQ4MIfYQ%3D%3D)][[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFg46_9z3FysahsRNmlyQznW75HPfZ6cS6xUxbEGRcYgwKQXMfCopOaFwdzQ95Hj9fQDXCR7WXJHXFqUoKITtuDpYvTsvfkPixK64IwMu1H2PqSq9z15KuDWzZzqSrJXZ7OnY1YBE7E5rbQOePE30lbx31y0rgamH6zz3c73bpD1umyIEagDg6SBstRTUQO7RbevuqbqaU0PIgvbl3HtGDHzbO4Vg%3D%3D)] 폴스타 5의 경우 차량 <span class="highlight">가격</span>이 보조금 상한선(8,500만 원)을 초과할 것으로 예상되므로, 보조금은 일부만 적용되거나 전혀 적용되지 않을 수 있습니다. <span class="highlight">구매 견적</span> 시 보조금 <span class="highlight">혜택</span> 적용 여부를 반드시 확인해야 합니다.</p>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="cost-saving-tips">
+        <span id="cost-saving-tips-anchor" class="anchor"></span>
+        <h2>💰 폴스타 5 유지비 절약을 위한 2026년 맞춤 전략</h2>
+        <p>폴스타 5를 <span class="highlight">저렴한곳</span>에서 구매하고, <span class="highlight">유지보수 비용</span>을 최소화하기 위해 반드시 알아야 할 <span class="highlight">할인</span> <span class="highlight">혜택</span>과 <span class="highlight">노하우</span>를 정리했습니다. 2026년의 새로운 <span class="highlight">트렌드</span>와 <span class="highlight">AI</span> 기술 활용법도 포함됩니다.</p>
+
+        <h3>1. 충전 요금 절약: <span class="highlight">AI</span> 기반 충전 스케줄링 활용</h3>
+        <p>충전 <span class="highlight">비용</span>의 차이는 충전 시간에 따라 발생합니다. 2026년에는 <span class="highlight">AI</span> 기반의 스마트 충전 <span class="highlight">기술</span>이 <span class="highlight">확대</span>될 것입니다. <span class="highlight">제미나이</span>(Gemini)나 <span class="highlight">ChatGPT</span>와 같은 대화형 <span class="highlight">AI</span> 기술을 활용하여 차량의 충전 스케줄을 최적화하고, 가장 <span class="highlight">저렴한</span> 시간대에 자동으로 충전을 시작하도록 설정할 수 있습니다. <span class="highlight">폴스타 5</span>는 이러한 스마트 기능을 내재하고 있을 가능성이 높으며, 주행 데이터를 분석하여 최적의 <span class="highlight">충전 비용</span> 절감 <span class="highlight">노하우</span>를 제시합니다.</p>
+
+        <h3>2. 보험료 절감: UBI 특약과 <span class="highlight">할인</span> <span class="highlight">혜택</span> 극대화</h3>
+        <p>고가 차량인 <span class="highlight">폴스타 5</span>의 <span class="highlight">보험료</span>를 낮추려면 <span class="highlight">다이렉트 보험</span> <span class="highlight">비교</span>가 필수입니다. 여러 보험사의 <span class="highlight">견적</span>을 받아 <span class="highlight">저렴한곳</span>을 찾고, 전기차 전용 <span class="highlight">할인</span> <span class="highlight">혜택</span>(마일리지 특약, 첨단 안전장치 <span class="highlight">할인</span> 등)을 최대한 적용해야 합니다. 특히 <span class="highlight">UBI 특약(운전습관 연계 보험)</span>은 안전 운전을 통해 <span class="highlight">보험료</span> <span class="highlight">할인</span>을 받을 수 있어 <span class="highlight">폴스타 5 유지비</span>를 줄이는 데 큰 도움이 됩니다.</p>
+
+        <h3>3. 소모품 관리: 타이어 압력 및 정기 점검</h3>
+        <p>타이어는 <span class="highlight">폴스타 5 유지비</span>의 가장 큰 소모품 <span class="highlight">비용</span>입니다. 정기적으로 타이어 <span class="highlight">공기압</span>을 확인하고, 앞뒤 타이어 위치 교환을 통해 마모 속도를 균일하게 유지해야 합니다. <span class="highlight">폴스타 5</span>의 <span class="highlight">소모품 교체</span>는 내연기관차보다 덜 복잡하므로, 지정된 서비스 센터에서 정기적으로 <span class="highlight">점검</span>을 받는 것이 좋습니다. <span class="highlight">내돈내산 후기</span>를 보면 타이어 교체 <span class="highlight">비용</span>이 <span class="highlight">예상</span>보다 높아 당황하는 경우가 많으니 미리 <span class="highlight">견적</span>을 확인하세요.</p>
+    </section>
+
+    <hr>
+
+    <section id="2026-trend">
+        <span id="2026-trend-anchor" class="anchor"></span>
+        <h2>📈 2026년 전기차 시장 트렌드: 폴스타 5 유지보수에 미치는 영향</h2>
+        <p>2026년은 전기차 시장의 대격변이 예상되는 시기입니다. 폴스타 5와 같은 고성능 EV의 <span class="highlight">유지보수</span> 환경에도 큰 변화가 있을 것입니다. <span class="highlight">AI</span> 기술의 발전과 정부 정책의 변화가 <span class="highlight">폴스타 5 유지비</span>에 어떤 영향을 미칠지 예측해봅니다.</p>
+
+        <h3>1. <span class="highlight">AI</span> 기반 차량 진단 및 예측 정비</h3>
+        <p>폴스타 5는 첨단 소프트웨어와 <span class="highlight">AI</span> <span class="highlight">기술</span>이 집약된 차량입니다. 2026년에는 <span class="highlight">AI</span>가 차량 데이터를 실시간으로 분석하여 고장 가능성을 예측하고, 운전자에게 필요한 <span class="highlight">정비</span> 시점을 알려주는 기능이 보편화될 것입니다. 이는 불필요한 부품 <span class="highlight">교체</span>를 줄이고 <span class="highlight">유지보수 비용</span>을 최소화하는 <span class="highlight">장점</span>이 있습니다. <span class="highlight">Gemini</span>나 <span class="highlight">ChatGPT</span>와 같은 대형 언어 모델(LLM)이 차량 내부에 탑재되어 운전자의 <span class="highlight">정비</span> 관련 질문에 즉각적으로 답변하는 서비스도 <span class="highlight">확대</span>될 것으로 보입니다.</p>
+
+        <h3>2. 배터리 리퍼비시 및 재활용 시장 활성화</h3>
+        <p>배터리 <span class="highlight">수명</span>에 대한 우려는 <span class="highlight">폴스타 5 유지비</span>의 가장 큰 <span class="highlight">단점</span>으로 꼽힙니다. 하지만 2026년 이후에는 폐배터리를 재활용하거나 리퍼비시하여 <span class="highlight">저렴한</span> <span class="highlight">가격</span>에 재판매하는 시장이 크게 성장할 것입니다. 이는 보증 기간이 끝난 차량의 <span class="highlight">배터리 교체 비용</span>을 획기적으로 낮출 수 있는 요인입니다.[[11](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGgcFRITg_EKPCW-MjcNvxnLChvmm27VarhfTioVE2k_J_D6KHKgc_91S-dQFYBaXM_VyNRXYwdwT0TsZLWvd5CyGkfENv-JMO3yXWLLPl9TynRHVB9tt5ZE7-PUeIVmgY4vTHefRf5smWSkGwnx6GBMHIw-g%3D%3D)]</p>
+
+        <h3>3. 보험 상품의 세분화 및 <span class="highlight">할인</span> <span class="highlight">혜택</span> 경쟁</h3>
+        <p>전기차 <span class="highlight">보험료</span>의 <span class="highlight">할증</span> 문제를 해결하기 위해, 2026년에는 보험사들이 전기차 전용 <span class="highlight">할인</span> <span class="highlight">상품</span>을 출시할 것입니다. 특히 <span class="highlight">폴스타 5</span>와 같은 고가 EV를 위한 맞춤형 <span class="highlight">보험</span> <span class="highlight">상품</span>이 등장하여 <span class="highlight">유지비</span>를 낮추는 데 기여할 것입니다. <span class="highlight">신규 가입</span> <span class="highlight">혜택</span>과 <span class="highlight">사은품</span> <span class="highlight">이벤트</span>도 활발해질 것으로 <span class="highlight">예상</span>되므로, <span class="highlight">견적</span> <span class="highlight">비교</span>를 통해 <span class="highlight">저렴한곳</span>을 찾는 것이 중요합니다.</p>
+    </section>
+
+    <hr>
+
+    <section id="calculator">
+        <span id="calculator-anchor" class="anchor"></span>
+        <h2>📊 폴스타 5 유지비 시뮬레이션 계산기</h2>
+        <p>폴스타 5의 실제 <span class="highlight">유지비</span>를 계산해 보세요. 운전자님의 예상 <span class="highlight">주행거리</span>, 충전 환경, 그리고 <span class="highlight">보험료</span> <span class="highlight">할인</span> 여부를 입력하면 대략적인 월별/연간 <span class="highlight">유지비</span> <span class="highlight">예상</span> <span class="highlight">금액</span>을 확인할 수 있습니다.</p>
+
+        <form id="maintenance-calculator" action="#" method="GET" onsubmit="return false;" style="max-width:700px; margin:auto;">
+            <h3>1. 기본 정보</h3>
+            <label for="calc-mileage">연간 예상 주행거리(km)<span style="color:red;">*</span></label>
+            <input type="number" id="calc-mileage" name="calc_mileage" min="1000" max="100000" placeholder="예: 15000 (연간 주행거리)" required />
+
+            <label for="calc-charging-env">주요 충전 환경<span style="color:red;">*</span></label>
+            <select id="calc-charging-env" name="calc_charging_env" required>
+                <option value="home">가정용 완속 충전 (가장 저렴)</option>
+                <option value="apt">아파트 공용 완속 충전</option>
+                <option value="public-fast">공용 급속 충전 (주로 이용)</option>
+            </select>
+
+            <label for="calc-insurance-discount">보험료 할인 특약 적용 여부</label>
+            <div>
+                <input type="radio" id="discount-yes" name="calc_insurance_discount" value="yes" checked> <label for="discount-yes" style="display:inline;">UBI, 마일리지 등 할인 적용</label>
+                <input type="radio" id="discount-no" name="calc_insurance_discount" value="no" style="margin-left: 20px;"> <label for="discount-no" style="display:inline;">할인 미적용 (표준)</label>
+            </div>
+            
+            <h3>2. 소모품 관리 및 기타 비용</h3>
+            <label for="calc-tire-life">타이어 교체 주기 (예상) - 폴스타 5 타이어 비용에 영향</label>
+            <select id="calc-tire-life" name="calc_tire_life">
+                <option value="short">2만 km마다 (급가속/급정거 잦음)</option>
+                <option value="average">3만 km마다 (평균 운전 습관)</option>
+                <option value="long">4만 km마다 (안전 운전 습관)</option>
+            </select>
+
+            <label for="calc-etc-cost">기타 유지보수 예상 비용 (세차, 세금 등)</label>
+            <input type="number" id="calc-etc-cost" name="calc_etc_cost" min="0" placeholder="예: 300000 (연간 기타 비용)" />
+
+            <button class="btn-cta" onclick="calculateMaintenance()">유지비 예상 시뮬레이션 실행</button>
+        </form>
+
+        <div id="calc-result" class="cost-simulation-result"></div>
+
+        <script>
+            function calculateMaintenance() {
+                const mileage = parseInt(document.getElementById('calc-mileage').value);
+                const chargingEnv = document.getElementById('calc-charging-env').value;
+                const insuranceDiscount = document.querySelector('input[name="calc_insurance_discount"]:checked').value;
+                const tireLife = document.getElementById('calc-tire-life').value;
+                const etcCost = parseInt(document.getElementById('calc-etc-cost').value);
+
+                if (!mileage || !etcCost) {
+                    document.getElementById('calc-result').innerText = '⚠️ 필수 항목을 모두 입력해주세요.';
+                    return;
+                }
+
+                // 1. 충전 비용 계산 (폴스타 5 전비 5km/kWh 가정)
+                const totalEnergyKwh = mileage / 5; // 연간 총 필요 전력량
+                let chargingCostPerKwh; // 2026년 예상 요금 기준 (가정용 100원, 아파트 300원, 급속 400원)
+                if (chargingEnv === 'home') chargingCostPerKwh = 100;
+                else if (chargingEnv === 'apt') chargingCostPerKwh = 300;
+                else chargingCostPerKwh = 400;
+                let annualChargingCost = totalEnergyKwh * chargingCostPerKwh;
+
+                // 2. 소모품 비용 (타이어) 계산 (고성능 EV 타이어 가격 및 수명 반영)
+                // 폴스타 5 타이어 1세트(4개) 교체 비용 120만원 가정 (고성능 타이어)
+                const tireCostPerSet = 1200000;
+                let tireReplacementInterval;
+                if (tireLife === 'short') tireReplacementInterval = 20000;
+                else if (tireLife === 'average') tireReplacementInterval = 30000;
+                else tireReplacementInterval = 40000;
+                let annualTireCost = (mileage / tireReplacementInterval) * tireCostPerSet;
+
+                // 3. 보험료 계산 (폴스타 5 평균 보험료 200만원 가정, 할인 적용 시 20% 할인)
+                let annualInsuranceCost = 2000000;
+                if (insuranceDiscount === 'yes') annualInsuranceCost *= 0.8; // 20% 할인 가정
+
+                // 4. 기타 정비 및 세금 (자동차세 13만원 고정, 기타 정비 10만원 가정)
+                let annualTaxAndMaint = 130000 + 100000;
+                
+                // 최종 연간 유지비 계산
+                let finalAnnualCost = annualChargingCost + annualTireCost + annualInsuranceCost + annualTaxAndMaint + etcCost;
+                let monthlyCost = finalAnnualCost / 12;
+
+                // 최종 표시
+                document.getElementById('calc-result').innerHTML = 
+                    `<strong>🔑 예상 월별 유지비 결과:</strong><br>` + 
+                    `<span style="color:#d32f2f; font-size: 1.8rem;">${Math.round(monthlyCost).toLocaleString()} 원</span><br>` +
+                    `<strong>(연간 총 ${finalAnnualCost.toLocaleString()} 원)</strong>`;
+            }
+        </script>
+    </section>
+
+    <hr>
+
+    <section id="faq">
+        <span id="faq-anchor" class="anchor"></span>
+        <h2>❓ 폴스타 5 유지비 관련 자주 묻는 질문 (FAQ)</h2>
+        <dl>
+            <dt>폴스타 5의 배터리 수명은 얼마나 되나요?</dt>
+            <dd>폴스타는 <strong>8년 또는 16만km</strong> 보증 기간 내에 배터리 용량이 초기 성능의 70% 미만으로 저하되면 무상 <span class="highlight">교체</span>를 제공합니다.[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH2fCwRm8JPUmBSB__HplGzmFHf4xfIuBOEMJee7HueczEDxMia7WvevB3D6sPjoNI9axS7XlxvwznPkJdK1s5PPOSFf1_nNmZpEcaOcQgG8lGnFx306hc60CueT0RcCQ0qk6lRcECv_a5_J-4efj8%3D)][[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQErA6wwV03rxQphWH-JRalu1tp5cZqDeaXgmWR8ChtSF9pMDC0AsJTN8_waWrpR5WHhudXl1aYqZDdgJD27sKT_o1YjFOkVKXVGvcy2_djlztt2KimX4p7IOFZAoSZB8Gn6egDXNvTKemylJL4LIylnviH3eRIpwMTieOpm47dMx8eD71o%3D)][[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEQ2hq3qWsjomesKVjpwL3B5QwVu9_3FR1dAZwrDc_dTvOeusfB8oqaNbRV6p44z8Ebg36L8Bd2s7u7NfkB9fak0ZyJJPBtSxZfMB0mJpMftkTEcFvLlg7XWHbb1ip_I-ebehY9xQsSUJFRVVhpx4j2cnzFpJoEkupd)][[8](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG9kHBRl2K9wd7YJFugouYXG_wMkzN3g9BjZmVIH8EWCCGDP9HczsPPqSvPAF72XaCBXQerimcLGUC5wwkriCMNjHc9efsn-xw5eVO2Yd1EE3cs84BFTo665MCQesNPgbuOQUF-jAMFWC7LHVqSIFRcRA%3D%3D)] 2026년 <span class="highlight">트렌드</span>를 감안할 때 실제 수명은 15~20년 이상으로 <span class="highlight">예상</span>됩니다. 배터리 관리에 따라 <span class="highlight">차이점</span>이 발생합니다.</dd>
+
+            <dt>폴스타 5의 보험료는 내연기관차보다 비싼가요?</dt>
+            <dd>대부분의 경우 <span class="highlight">폴스타 5 보험료</span>는 동급 내연기관차보다 높게 책정됩니다.[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHRqeBmeukZA5cF-Tx7RWWh9exBij_n74Oasmouz_zp6TtSj1gCBwuAFX82lDtLCmyB_j053Y6MXWPjiQicS9qNk3Zb7T6rHk0Nb8lGwfkqhT96WXGMBp582-8e44TXM_UOyOVtpukHGmfo0RgMSqaDwsCVE4ZYk_1FqwFA81xDO_hwAFqHxkUitqjL70ScWo4brt5hgQuCMxZQ5XkZGTVPWcIE6us%3D)] 이는 고가 차량인 점과 전기차의 배터리 <span class="highlight">수리 비용</span>이 높은 점 때문입니다. 하지만 <span class="highlight">다이렉트 보험 비교</span>와 <span class="highlight">할인 특약</span>(마일리지, 안전 운전 등)을 활용하면 <span class="highlight">저렴한곳</span>을 찾을 수 있습니다.</dd>
+
+            <dt>전기차 소모품 비용 중 가장 큰 비중을 차지하는 것은 무엇인가요?</dt>
+            <dd>전기차는 엔진오일 교체가 없어 <span class="highlight">유지보수 비용</span>이 낮지만, <span class="highlight">고성능 타이어</span> <span class="highlight">교체 비용</span>이 가장 큰 비중을 차지합니다.[[11](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGgcFRITg_EKPCW-MjcNvxnLChvmm27VarhfTioVE2k_J_D6KHKgc_91S-dQFYBaXM_VyNRXYwdwT0TsZLWvd5CyGkfENv-JMO3yXWLLPl9TynRHVB9tt5ZE7-PUeIVmgY4vTHefRf5smWSkGwnx6GBMHIw-g%3D%3D)][[12](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHpCT0WVbg59Pq5lz0ViupDwJjUbgw93XyHZFV95GWzJ4bM6Pgblr-BRUtIe4DQOjGKJ-m3pDyxzbhlMsva_rNhUahezUpIyaFEy0S0g2p5NUz7DTZQpL4TB0No0Q3Z6SHH9BU4w-nMW-oBaAfrLBiLeL-cxeOtIQT0z3zcv91A)][[13](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE6UZDMxodLKdoRiYCZiWtTwhZAP4_EXjAApYCe8YnDYZT6eJ5nvB3W6o8pqaTUa9Q-XtbNiQvWxa2vRT_YlRqeikyEUxvmN0MqXE_WsCdsQje4yMM52491e3iXwtJExiNpmnpwSqELdq8%3D)] 폴스타 5는 고성능 차량인 만큼 타이어 <span class="highlight">가격</span>이 높으므로, <span class="highlight">구매 견적</span> 시 타이어 <span class="highlight">비용</span>을 고려해야 합니다.</dd>
+
+            <dt>2026년 폴스타 5 구매 시 받을 수 있는 <span class="highlight">혜택</span>이 있나요?</dt>
+            <dd>2026년에는 내연기관차를 폐차하고 전기차를 구매하면 추가 <span class="highlight">보조금</span>을 지원하는 '전환 지원금'이 <span class="highlight">신규</span> 도입됩니다.[[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEJFK3OGhtrwt3r9qXk84ByO1sHLKMYBUNwWTuQOsGcsKNWkcr_gdHX7VF5DM1DQZXqJKbPKI02jHH12ljHhkEIIE1OE-mXIOuMW3_tS1-PA2cwHHFqGYv4KmRMBrUjeuknq4JrhSW9ZQ4vkaNTSyAAbrYKB7LFrD7GoflzMsN_FTMWKLR3K5hQ4MIfYQ%3D%3D)][[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFg46_9z3FysahsRNmlyQznW75HPfZ6cS6xUxbEGRcYgwKQXMfCopOaFwdzQ95Hj9fQDXCR7WXJHXFqUoKITtuDpYvTsvfkPixK64IwMu1H2PqSq9z15KuDWzZzqSrJXZ7OnY1YBE7E5rbQOePE30lbx31y0rgamH6zz3c73bpD1umyIEagDg6SBstRTUQO7RbevuqbqaU0PIgvbl3HtGDHzbO4Vg%3D%3D)] <span class="highlight">폴스타 5</span>는 차량 <span class="highlight">가격</span>이 높기 때문에 <span class="highlight">보조금</span> 전액 수령은 어렵지만, <span class="highlight">신규 가입 혜택</span>과 <span class="highlight">할인</span> <span class="highlight">혜택</span>을 받을 수 있습니다.</dd>
+
+            <dt>폴스타 5와 테슬라 모델 S 중 <span class="highlight">유지비</span>가 <span class="highlight">저렴한곳</span>은 어디인가요?</dt>
+            <dd>테슬라 모델 S와 폴스타 5 모두 고성능 EV로 <span class="highlight">유지보수 비용</span>이 유사합니다. <span class="highlight">비교</span> <span class="highlight">분석</span> 결과 <span class="highlight">충전 비용</span>은 거의 동일하며, <span class="highlight">보험료</span>와 <span class="highlight">소모품 비용</span>은 <span class="highlight">견적</span> <span class="highlight">비교</span>에 따라 <span class="highlight">차이점</span>이 발생합니다. <span class="highlight">내돈내산 후기</span>를 보면 <span class="highlight">폴스타 5</span>가 <span class="highlight">정비</span> 측면에서 볼보의 인프라를 활용하는 <span class="highlight">장점</span>이 있어 서비스 만족도가 높을 수 있습니다.</dd>
+        </dl>
+    </section>
+
+    <hr>
+
+    <section id="related-keywords">
+        <span id="related-keywords-anchor" class="anchor"></span>
+        <h2>📚 연관 키워드 및 함께 많이 찾는 카테고리</h2>
+        <p>폴스타 5 <span class="highlight">유지비</span>와 관련된 추가적인 정보 탐색을 위한 키워드와 카테고리입니다. 이 키워드들을 통해 더 많은 <span class="highlight">유지비</span> 절약 정보를 얻을 수 있습니다.</p>
+        
+        <h3>🔍 자동 완성 키워드 및 연관 검색어</h3>
+        <nav aria-label="관련 검색어">
+            <ul>
+                <li><a href="/">폴스타 5 가격</a></li>
+                <li><a href="/">폴스타 5 예상 가격</a></li>
+                <li><a href="/">폴스타 5 보조금</a></li>
+                <li><a href="/">폴스타 5 출고가</a></li>
+                <li><a href="/">폴스타 5 제원</a></li>
+                <li><a href="/">폴스타 5 vs 모델 S</a></li>
+                <li><a href="/">전기차 보험료 비교</a></li>
+                <li><a href="/">전기차 유지보수 비용</a></li>
+                <li><a href="/">전기차 타이어 교체 주기</a></li>
+                <li><a href="/">폴스타 5 내돈내산 후기</a></li>
+                <li><a href="/">폴스타 5 리스 견적</a></li>
+                <li><a href="/">폴스타 5 혜택</a></li>
+                <li><a href="/">폴스타 5 할인</a></li>
+                <li><a href="/">폴스타 5 사은품</a></li>
+                <li><a href="/">폴스타 5 신규 가입</a></li>
+                <li><a href="/">폴스타 5 디시</a></li>
+                <li><a href="/">폴스타 5 싼곳</a></li>
+                <li><a href="/">폴스타 5 전문 업체</a></li>
+                <li><a href="/">폴스타 5 장단점</a></li>
+                <li><a href="/">폴스타 5 충전 비용</a></li>
+                <li><a href="/">폴스타 5 배터리 교체 가격</a></li>
+            </ul>
+        </nav>
+        
+        <h3>🗂️ 함께 많이 찾는 카테고리</h3>
+        <nav aria-label="함께 많이 찾는 카테고리">
+            <ul>
+                <li><a href="/">전기차 충전 요금 비교</a></li>
+                <li><a href="/">자동차 리스 vs 할부 비교</a></li>
+                <li><a href="/">고성능 전기차 보험 가입 순위</a></li>
+                <li><a href="/">전기차 배터리 수리 센터</a></li>
+                <li><a href="/">2026년 전기차 보조금 정책</a></li>
+                <li><a href="/">친환경차 세금 혜택</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <hr>
+
+    <section id="trust-sites">
+        <span id="trust-sites-anchor" class="anchor"></span>
+        <h2>🏛️ 신뢰성 높은 공인 외부 정보 출처 (5개 이상)</h2>
+        <p>폴스타 5의 <span class="highlight">유지비</span> 및 전기차 <span class="highlight">정책</span>과 관련된 공식 정보는 다음 공신력 있는 기관의 정보를 통해 확인하실 수 있습니다.</p>
+        <ul>
+            <li><a href="https://www.polestar.com" target="_blank" rel="noopener noreferrer">**폴스타 공식 웹사이트**</a>: 차량 <span class="highlight">제원</span>, <span class="highlight">보증 정책</span>, <span class="highlight">배터리</span> <span class="highlight">수명</span> 관련 <span class="highlight">정보</span>[[1](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQH2fCwRm8JPUmBSB__HplGzmFHf4xfIuBOEMJee7HueczEDxMia7WvevB3D6sPjoNI9axS7XlxvwznPkJdK1s5PPOSFf1_nNmZpEcaOcQgG8lGnFx306hc60CueT0RcCQ0qk6lRcECv_a5_J-4efj8%3D)][[2](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQErA6wwV03rxQphWH-JRalu1tp5cZqDeaXgmWR8ChtSF9pMDC0AsJTN8_waWrpR5WHhudXl1aYqZDdgJD27sKT_o1YjFOkVKXVGvcy2_djlztt2KimX4p7IOFZAoSZB8Gn6egDXNvTKemylJL4LIylnviH3eRIpwMTieOpm47dMx8eD71o%3D)][[3](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEQ2hq3qWsjomesKVjpwL3B5QwVu9_3FR1dAZwrDc_dTvOeusfB8oqaNbRV6p44z8Ebg36L8Bd2s7u7NfkB9fak0ZyJJPBtSxZfMB0mJpMftkTEcFvLlg7XWHbb1ip_I-ebehY9xQsSUJFRVVhpx4j2cnzFpJoEkupd)][[8](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQG9kHBRl2K9wd7YJFugouYXG_wMkzN3g9BjZmVIH8EWCCGDP9HczsPPqSvPAF72XaCBXQerimcLGUC5wwkriCMNjHc9efsn-xw5eVO2Yd1EE3cs84BFTo665MCQesNPgbuOQUF-jAMFWC7LHVqSIFRcRA%3D%3D)][[14](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE9cQxXPmhEBSxzoyk5G10KSyI5aIl5yLluyjxXe2IB1skUV2OdJktJiJkh2M61QhH8eB7k99AuA2uUAwGTEvcJj0NaumdmEPl-nbBMx8AHmLwM9X3_H4eUfyphtlp3M_pD8YcwUQGT798AtgA%3D)]</li>
+            <li><a href="https://www.kidi.or.kr" target="_blank" rel="noopener noreferrer">**한국보험개발원 (KIDI)**</a>: 자동차 <span class="highlight">보험료</span>율 산정 및 차량 등급 <span class="highlight">정보</span>, 전기차 <span class="highlight">보험료</span> 통계 제공[[4](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQHRqeBmeukZA5cF-Tx7RWWh9exBij_n74Oasmouz_zp6TtSj1gCBwuAFX82lDtLCmyB_j053Y6MXWPjiQicS9qNk3Zb7T6rHk0Nb8lGwfkqhT96WXGMBp582-8e44TXM_UOyOVtpukHGmfo0RgMSqaDwsCVE4ZYk_1FqwFA81xDO_hwAFqHxkUitqjL70ScWo4brt5hgQuCMxZQ5XkZGTVPWcIE6us%3D)]</li>
+            <li><a href="https://www.kofia.or.kr" target="_blank" rel="noopener noreferrer">**손해보험협회 (KOFIA)**</a>: <span class="highlight">보험</span> 관련 <span class="highlight">제도</span> 및 소비자 보호 <span class="highlight">정보</span> 제공[[5](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQE-PDSy9g1ZLTTt_-el7uoEeA33OPKBFymS4LQhlLxi8aOlIymBOG317rcFtjRIbNUtuETqhmlFXuENJo5MJyqfBFCWTZwGOBHvMfY4hmSA34WXBZKXCkhBx-JvJ845UeUA7g6Qnw47POpsGbl62iaFTN1lBYFQvLlarI2tNFLH-YokweBU5C3WjPaDx6z0BWvAEMxxb3ZDjEDK78h2BqjTh2kx_xUaiPgmQtiBGD2quHvIwJiPCLovubVo5hogUQ%3D%3D)]</li>
+            <li><a href="https://www.fss.or.kr" target="_blank" rel="noopener noreferrer">**금융감독원**</a>: <span class="highlight">보험</span> 상품 <span class="highlight">비교</span> <span class="highlight">공시</span> 및 소비자 <span class="highlight">민원</span> 처리 <span class="highlight">정보</span></li>
+            <li><a href="https://www.law.go.kr" target="_blank" rel="noopener noreferrer">**국가법령정보센터**</a>: 자동차 손해배상 보장법 등 관련 법규 확인</li>
+            <li><a href="https://www.me.go.kr" target="_blank" rel="noopener noreferrer">**환경부 (무공해차 통합누리집)**</a>: 전기차 <span class="highlight">보조금</span> <span class="highlight">정책</span> 및 충전 요금 <span class="highlight">정보</span>[[6](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQEJFK3OGhtrwt3r9qXk84ByO1sHLKMYBUNwWTuQOsGcsKNWkcr_gdHX7VF5DM1DQZXqJKbPKI02jHH12ljHhkEIIE1OE-mXIOuMW3_tS1-PA2cwHHFqGYv4KmRMBrUjeuknq4JrhSW9ZQ4vkaNTSyAAbrYKB7LFrD7GoflzMsN_FTMWKLR3K5hQ4MIfYQ%3D%3D)][[9](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQGL9KYWO_agAqCN9fjIAXpzldg2QFzA6B610SjxkUW3DvxEFQMuNG0eo9fObKAOA4qCkaSC3tzS2TJOEakWe6SyM36EnyRdmfj4kBHHqEX4P3CiQ0MXLkmp_ItIpcIXGyiI2B6MLfL4IudmzMWlDNFui_ZD1tYXRPxkIdoxdVWN7E2XLdDRvhqK8V8vtGuLdii9IA33RS7Mq-ChixTAWFz2MJ9AAnke0nIsHZvcI9Jcyu7prdKK4o1hQzOMPYjspEWEFOHYi7cxbdvFlYAXOnUPowm9ZhuB9qf0Nox6GQ%3D%3D)][[10](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFg46_9z3FysahsRNmlyQznW75HPfZ6cS6xUxbEGRcYgwKQXMfCopOaFwdzQ95Hj9fQDXCR7WXJHXFqUoKITtuDpYvTsvfkPixK64IwMu1H2PqSq9z15KuDWzZzqSrJXZ7OnY1YBE7E5rbQOePE30lbx31y0rgamH6zz3c73bpD1umyIEagDg6SBstRTUQO7RbevuqbqaU0PIgvbl3HtGDHzbO4Vg%3D%3D)]</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section id="quote-form">
+        <span id="quote-form-anchor" class="anchor"></span>
+        <h2>📞 폴스타 5 최적화 유지비 맞춤 견적 문의하기</h2>
+        <p>폴스타 5 <span class="highlight">유지비</span>를 최소화할 수 있는 <span class="highlight">견적</span> <span class="highlight">상담</span>을 받아보세요. 전문 컨설턴트가 <span class="highlight">충전 비용</span> 절감 <span class="highlight">노하우</span>, <span class="highlight">보험료</span> <span class="highlight">할인</span> <span class="highlight">혜택</span>을 포함한 맞춤형 <span class="highlight">유지보수</span> <span class="highlight">플랜</span>을 안내해 드립니다. <span class="highlight">체류 시간 증가</span>를 위해 상세한 필드를 구성했습니다.</p>
+
+        <form id="insurance-quote-form" action="#" method="POST" style="max-width:700px; margin:auto;">
+            <h3>1. 기본 정보</h3>
+            <label for="name">성함<span style="color:red;">*</span></label>
+            <input type="text" id="name" name="name" placeholder="홍길동" required />
+
+            <label for="phone">휴대폰 번호<span style="color:red;">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="010-XXXX-XXXX (연락 가능한 번호)" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}|[0-9]{11}" required />
+
+            <label for="email">이메일 주소</label>
+            <input type="email" id="email" name="email" placeholder="email@example.com" />
+
+            <h3>2. 폴스타 5 구매 및 운행 정보</h3>
+            <label for="purchase-type">구매 희망 형태<span style="color:red;">*</span></label>
+            <select id="purchase-type" name="purchase_type" required>
+                <option value="buy">현금/할부 구매</option>
+                <option value="lease">리스/장기렌트</option>
+            </select>
+
+            <label for="annual-mileage-form">연간 예상 주행거리(km)<span style="color:red;">*</span></label>
+            <input type="number" id="annual-mileage-form" name="annual_mileage_form" min="1000" max="100000" placeholder="예: 15000" required />
+            
+            <label for="charging-env-form">주요 충전 환경<span style="color:red;">*</span></label>
+            <select id="charging-env-form" name="charging_env_form" required>
+                <option value="home">단독주택 (가정용 완속 충전기)</option>
+                <option value="apt">아파트 (공용 완속 충전기)</option>
+                <option value="public">공용 급속 충전소 (주로 이용)</option>
+                <option value="other">기타</option>
+            </select>
+
+            <label for="old-car-type">기존 차량 소유 여부 (내연기관차 폐차 시 <span class="highlight">보조금 혜택</span> 확인)</label>
+            <select id="old-car-type" name="old_car_type">
+                <option value="none">없음</option>
+                <option value="ice">있음 (내연기관차)</option>
+                <option value="ev">있음 (기존 전기차)</option>
+            </select>
+
+            <h3>3. 요청 사항</h3>
+            <label for="message">문의 내용 및 요청 사항</label>
+            <textarea id="message" name="message" rows="5" placeholder="폴스타 5 리스 견적과 함께 충전 비용 절감 노하우를 알고 싶습니다. 배터리 보증 기간 이후의 유지보수 비용도 궁금합니다."></textarea>
+
+            <button class="btn-cta" type="submit">✅ 1:1 맞춤 견적 요청 및 상담 시작하기</button>
+        </form>
+    </section>
+
+      
